@@ -17,7 +17,7 @@ cellspacing="2">
 
 <tr>
 <td colspan=2>
-<center><font size=4><b>College Registration Form</b></font></center>
+<center><font size=4><b>Society Registration Form</b></font></center>
 </td>
 </tr>
 
@@ -28,7 +28,7 @@ cellspacing="2">
 
 <tr>
 <td>Dad's Name</td>
-<td><input type="text" name="fathername" id="fathername"
+<td><input type="text" name="father's name" id="fathername"
 size="30"></td>
 </tr>
 <tr>
@@ -56,7 +56,7 @@ id="personaladdress" size="30"></td>
 <option value="Mumbai">MUMBAI</option>
 <option value="Ludhiana">LUDHIANA</option>
 <option value="Patna">PATNA</option>
-<option value="Patna">BANGALORE</option>
+<option value="Bangalore">BANGALORE</option>
 <option value="Kolkata">KOLKATA</option>
 </select></td>
 </tr>
