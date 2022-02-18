@@ -17,7 +17,7 @@ cellspacing="2">
 
 <tr>
 <td colspan=2>
-<center><font size=4><b>Student Registration Form</b></font></center>
+<center><font size=4><b>University Registration Form</b></font></center>
 </td>
 </tr>
 
@@ -37,9 +37,9 @@ size="30"></td>
 </tr>
 
 <tr>
-<td>Personal Address</td>
-<td><input type="text" name="personaladdress"
-id="personaladdress" size="30"></td>
+<td>Current Address</td>
+<td><input type="text" name="currentaddress"
+id="currentaddress" size="30"></td>
 </tr>
 
 <tr>
