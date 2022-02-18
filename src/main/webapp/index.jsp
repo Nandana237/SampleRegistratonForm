@@ -17,7 +17,7 @@ cellspacing="2">
 
 <tr>
 <td colspan=2>
-<center><font size=4><b>Society Registration Form</b></font></center>
+<center><font size=4><b>Student Registration Form</b></font></center>
 </td>
 </tr>
 
@@ -27,8 +27,8 @@ cellspacing="2">
 </tr>
 
 <tr>
-<td>Dad's Name</td>
-<td><input type="text" name="father's name" id="fathername"
+<td>Father's Name</td>
+<td><input type="text" name="fathername" id="fathername"
 size="30"></td>
 </tr>
 <tr>
@@ -77,8 +77,8 @@ id="personaladdress" size="30"></td>
 <td><select name="District">
 <option value="-1" selected>select..</option>
 <option value="Nalanda">NALANDA</option>
-<option value="UP">UP</option>
-<option value="Goa">GOA</option>
+<option value="Lucknow">LUCKNOW</option>
+<option value="Gaya">GAYA</option>
 <option value="Patna">PATNA</option>
 </select></td>
 
@@ -95,22 +95,22 @@ id="personaladdress" size="30"></td>
 </select></td>
 </tr>
 <tr>
-<td>PinCode</td>
+<td>Pin Code</td>
 <td><input type="text" name="pincode" id="pincode" size="30"></td>
 
 </tr>
 <tr>
-<td>EmailId</td>
+<td>Email Id</td>
 <td><input type="text" name="emailid" id="emailid" size="30"></td>
 </tr>
 
 <tr>
-<td>DOB</td>
+<td>D.O.B</td>
 <td><input type="text" name="dob" id="dob" size="30"></td>
 </tr>
 
 <tr>
-<td>MobileNo</td>
+<td>Mobile No.</td>
 <td><input type="text" name="mobileno" id="mobileno" size="30"></td>
 </tr>
 <tr>
