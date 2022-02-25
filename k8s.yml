@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workshop
+  labels:
+    app: workshop
+spec:
+  selector:
+    matchLabels:
+      app: workshop
+  template:
+    metadata: 
+      labels:
+        app: workshop
+    spec:
+      containers:
+      - name: mytom
+        image: nandana237/jenkins_tomcat:latest
+        ports:
+        - containerPort: 8080
+  replicas: 10
