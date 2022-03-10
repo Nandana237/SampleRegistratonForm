@@ -27,7 +27,7 @@ cellspacing="2">
 </tr>
 
 <tr>
-<td>Dad's Name</td>
+<td>Father's Name</td>
 <td><input type="text" name="fathername" id="fathername"
 size="30"></td>
 </tr>
