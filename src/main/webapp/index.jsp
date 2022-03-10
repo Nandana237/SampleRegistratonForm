@@ -37,7 +37,7 @@ size="30"></td>
 </tr>
 
 <tr>
-<td>Current Address</td>
+<td>Present Address</td>
 <td><input type="text" name="currentaddress"
 id="currentaddress" size="30"></td>
 </tr>
