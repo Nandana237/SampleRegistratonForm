@@ -14,7 +14,7 @@ spec:
         app: workshop
     spec:
       containers:
-      - name: mytom
+      - name: tom-cont
         image: nandana237/jenkins_tomcat:latest
         ports:
         - containerPort: 8080
