@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: workshop
+  name: prod
   labels:
-    app: workshop
+    app: prod
 spec:
   selector:
     matchLabels:
-      app: workshop
+      app: prod
   template:
     metadata: 
       labels:
-        app: workshop
+        app: prod
     spec:
       containers:
       - name: tom-cont
-        image: nandana237/jenkin-regist-img:latest
+        image: nandana237/reg-img:latest
         ports:
         - containerPort: 8080
   replicas: 10
