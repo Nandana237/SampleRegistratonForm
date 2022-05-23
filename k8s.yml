@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: tom-cont
-        image: nandana237/tom_img:1.0
+        image: nandana237/tom_img:$(cat Latest_Version.txt)
         ports:
         - containerPort: 8080
   replicas: 10
