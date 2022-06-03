@@ -1,0 +1,64 @@
+- name: webserver configuration
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: present
+  - name: start httpd
+    service:
+      name: httpd
+      state: started
+  - name: download freecss template
+    get_url:
+      url: https://www.free-css.com/assets/files/free-css-templates/download/page274/agency-perfect.zip
+      dest: /var/www/html
+      
+  - name: unzip template
+    unarchive:
+      src: /var/www/html/agency-perfect.zip
+      dest: /var/www/html
+      remote_src: yes
+  - name: deploy html file
+    copy:
+      src: /var/www/html/html-freebie-agency-perfect-master/
+      dest: /var/www/html
+      remote_src: true
+
+- name: java configuration
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: keep latest java
+    yum:
+      name: java
+      state: latest
+
+- name: app configuration
+  hosts: appservers
+  become: yes
+  tasks:
+  - name: install tomcat
+    get_url:
+      url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.63/bin/apache-tomcat-9.0.63.tar.gz
+      dest: /home/ec2-user
+  - name: unzip
+    unarchive:
+      src: /home/ec2-user/apache-tomcat-9.0.63.tar.gz
+      dest: /home/ec2-user
+      remote_src: true
+  - name: delete tomcat if available
+    command: "rm -rf /home/ec2-user/tomcat"
+  - name: rename tomcat
+    command: "mv /home/ec2-user/apache-tomcat-9.0.63 /home/ec2-user/tomcat"
+  - name: delete ROOT
+    file:
+      path: /home/ec2-user/tomcat/webapps/ROOT
+      state: absent
+  - name: deploy ROOT.war
+    copy:
+      src: /home/ec2-user/artifacts/ROOT.war
+      dest: /home/ec2-user/tomcat/webapps/
+  - name: start tomcat
+    command: "nohup /home/ec2-user/tomcat/bin/startup.sh &"
