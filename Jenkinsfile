@@ -1,24 +1,20 @@
-pipeline {
+pipeline { 
     agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building the application.....'
-                script {
-                    def test = 2 + 2 > 3 ? 'cool' : 'not cool'
-                    echo test
+        stage('Install Dependencies') { 
+            steps { 
+                sh 'Installing npm...' 
                 }
-            }
         }
-        stage('Test') {
+        stage('Test') { 
             steps {
-                echo 'Testing the application.....'
-            }
+                sh 'echo "Testing the application..."'
+                }
         }
-        stage('Deploy') {
+        stage("Deploy application") {
             steps {
-                echo 'Deploying the application.....'
-            }
-        }
-    }
-}
+                sh 'echo "Deploying the application..."'
+         }
+       }
+  	 }
+   }
