@@ -1,19 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Compile stage') {
             steps {
-                echo 'Building...'
+                withMaven(maven : 'Local_Maven') {
+                    sh 'mvn clean compile'
+                }
             }
         }
-        stage('Test') {
+        stage('Testing stage') {
             steps {
-                echo 'Testing...'
+                withMaven(maven : 'Local_Maven') {
+                    sh 'mvn test'
+                }
             }
         }
-        stage('Deploy') {
+        stage('Deployment stage') {
             steps {
-                echo 'Deploying...'
+                withMaven(maven : 'Local_Maven') {
+                    sh 'mvn deploy'
+                }
             }
         }
         stage ('secrets') {
