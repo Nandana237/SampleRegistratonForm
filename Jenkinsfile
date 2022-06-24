@@ -14,7 +14,7 @@ pipeline {
         stage('Deploying RegistrationForm.war on Docker') {
             steps {
                 sshagent(['ec2-credential']) {
-    sh 'scp -o StrictHostKeyChecking=no target/RegistrationForm.war ec2-user@54.91.37.9:tomcat/webapps/
+    sh 'scp -o StrictHostKeyChecking=no target/RegistrationForm.war ec2-user@54.175.199.3:tomcat/webapps/
                 }
             }
         }
