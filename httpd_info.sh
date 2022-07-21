@@ -1,3 +1,13 @@
+/*We can enhance simple shell script by using the following concepts
+1. Variables
+2. Filter like grep, cut, awk, and sed commands
+3. Conditional statement
+4. Loops
+5. Functions and many more
+6. cat /etc/shells
+7. which $SHELL
+*/
+
 #!/bin/bash
 httpd_v=$(httpd -v 2>&1 | awk -F '/' 'NR==1{print $2}' | awk '{print $1}')
 httpd_s=$(systemctl status httpd | grep Active | awk '{print $2}')
