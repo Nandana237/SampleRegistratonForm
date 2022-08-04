@@ -1,0 +1,47 @@
+#!/bin/bash
+echo "Hello World"
+
+# This is how you comment a line in Shell Scripting
+# Variables --> variables are the containers which stores some data inside them. In Shell, there are two types of variables 
+#(1)System Variables --> System variables are created and maintained by LINUX or UNIX Operating system. System variables are generally defined in capital case.
+echo $PATH
+echo $BASH
+echo $BASH_VERSION
+echo $HOME
+echo $PWD
+echo Present Working Diectory is $PWD
+
+#(2)User Defined Variables --> This type of variables are created and maintained by user. User variables are generally defined in lower case.
+name="ANUJ KUMAR"
+echo My name is $name
+value=10
+echo Value is = $value
+
+#Reading the user input from terminal
+echo "Please enter your name."
+read name
+echo "Your name is $name"
+
+#Reading multiple inputs from user
+echo "Please enter Employee Names"
+read name1 name2 name3
+echo "Employee names are: $name1, $name2, $name3"
+
+#Taking input from user in same line
+read -p 'Please enter username: ' user_name
+echo The username is: $user_name
+
+#Taking silent input from user so the input will not be visible on terminal
+read -sp 'Please enter password: ' pass_var
+echo
+echo "The Password is: $pass_var"
+
+#taking input in array format
+echo "Enter names: "
+read -a names
+echo "Names are: ${names[0]}, ${names[1]}"
+
+#Taking inputs without assigning variables and reading it like REPLY
+echo "Please enter username: "
+read
+echo "Username is: $REPLY"
