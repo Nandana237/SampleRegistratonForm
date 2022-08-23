@@ -1,0 +1,26 @@
+Create a deployment
+kubectl create deployment <deployment> --image=<image>
+or
+kubectl run <deployment> --image=<image>
+----------------------------------
+Create a deployment with a predefined replica number
+kubectl run <deployment> --image=<image> --replicas=<number>
+--------------------------------------
+Create a deployment with a predefined replica number and opening a port
+kubectl run <deployment> --image=<image> --replicas=<number>
+example:
+kubectl run nginx --image=nginx --replicas=2 --port=80
+Create a deployment with a predefined replica number,opening a port and exposing it
+kubectl run nginx --image=nginx --replicas=2 --port=80 --expose
+--------------------------------------------
+kubectl get deploy <deployment> --> Get a deployment
+kubectl get deployment <deployment> --watch --> Watch a deployment
+or kubectl get deployment <deployment> -w
+-------------------------------------------------
+kubectl set image deployment/nginx nginx=nginx:1.9.1 --> Update the image
+-------------------------------------------------------
+Scale a deployment
+kubectl scale --replicas=5 deployment/<deployment>
+kubectl rollout undo deployment <deployment> --> Rollback deployment
+kubectl rollout history deployment <deployment> --> Get rollout history
+kubectl rollout undo deployment <deployment> --to-revision=<revision> -->Roll back to a previous revision
