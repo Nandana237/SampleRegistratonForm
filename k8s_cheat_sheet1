@@ -1,0 +1,34 @@
+kubectl get pod --> List all pods in namespace
+kubectl get pod <pod> --watch --> View a pod in watch mode
+kubectl get pods -A --watch --> View all pods in watch mode
+kubectl get pods --sort-by='.status.containerStatuses[0].restartCount' --> List sroted pods
+kubectl get pods -o json/ubectl get pods -ojson --> JSON output
+kubectl get pods -o wide --> Wide output
+Custom columns:
+---------------------
+kubectl get pods -o custom-columns='DATA:spec.containers[*].image'
+kubectl get pods -o custom-columns='DATA:spec.containers[*].volumeMounts'
+kubectl get pods -o custom-columns='DATA:metadata.*'
+---------------------------------------------
+List all pods in a namespace:
+kubectl get pods -n <namespace>
+or
+kubectl -n <namespace> get pods
+or
+kubectl --namespace <namespace> get pods
+-----------------------------------------------
+List all pods in all namespaces:
+kubectl get pods --all-namespaces
+or
+kubectl get pods -A
+------------------------------------------------
+Executing a command in a running pod
+kubectl exec <pod> -- <command>
+kubectl exec -it <pod> -- <command> --> passing stdin to the container in TTY mode
+example
+kubectl exec -it nginx -- ls -lrth /app/
+-------------------------------------------------
+kubectl logs <pod> --> Get pod logs
+kubectl logs <pod> -c <container> --> Sometimes a pod contains more than 1 container. 
+You need to filter the output to get logs for a specific container(s)
+kubectl logs -f <pod> --> To follow the logs output (tail -f):
