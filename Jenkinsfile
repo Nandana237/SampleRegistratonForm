@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('git-clone') {
             steps {
-                git credentialsId: '15513cdc-0aff-4320-a1d9-feb0b298c867', url: 'https://github.com/Nandana237/SampleRegistratonForm.git'
+                git credentialsId: '6308e18b-34b0-46b1-9069-b4edcb3382a9', url: 'https://github.com/Nandana237/SampleRegistratonForm.git'
             }
         }
         stage('Building') {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Deploying ROOT.war to tomcat') {
             steps {
-                sshagent(['SSH-Credentials']) {
+                sshagent(['Docker-Credentials']) {
             sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.84.168 rm -rf tomcat/webapps/ROOT.war'
             sh "scp -o StrictHostKeyChecking=no target/RegistrationForm.war ec2-user@172.31.84.168:tomcat/webapps/ROOT.war"
             sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.84.168 tomcat/bin/startup.sh'
@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploying ROOT.war and Dockerfile') {
             steps {
-                sshagent(['SSH-Credentials']) {
+                sshagent(['Docker-Credentials']) {
         sh 'scp -o StrictHostKeyChecking=no target/RegistrationForm.war ec2-user@172.31.94.99:/home/ec2-user'
         sh 'scp -o StrictHostKeyChecking=no Dockerfile ec2-user@172.31.94.99:/home/ec2-user'
         sh 'scp -o StrictHostKeyChecking=no Latest_Version.txt ec2-user@172.31.94.99:/home/ec2-user'
@@ -35,7 +35,7 @@ pipeline {
        } 
        stage('Creating Image and Running container') {
             steps {
-                sshagent(['SSH-Credentials']) {
+                sshagent(['Docker-Credentials']) {
         sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.94.99 docker rm -f tom-cont'
         sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.94.99 docker image rm -f nandana237/tom-img:latest'
         sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.94.99 docker build -t nandana237/tom-img:latest .'
