@@ -1,0 +1,42 @@
+------------------------------------------------------------------------------------------------
+                             Install Jenkins on (Amazon Linux 2):
+------------------------------------------------------------------------------------------------
+sudo amazon-linux-extras install java-openjdk11 -y
+java --version
+wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+tar -xzf *.gz
+mv apache-maven-3.9.4 maven394
+rm -rf *.gz
+echo $PATH ==> mkdir bin
+mv maven394/ bin
+cd bin
+ln -s /home/ec2-user/bin/maven394/bin/mvn mvn
+ls -l ==> mvn --version
+sudo yum update –y
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo yum upgrade
+sudo yum install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+-----------------------------------------------------------------------------------------------------
+                             Install Jenkins on (Amazon Linux 2023):
+-----------------------------------------------------------------------------------------------------
+sudo dnf install java-11-amazon-corretto -y
+wget https://dlcdn.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz
+tar -xzf *.gz
+mv apache-maven-3.9.4 maven394
+rm -rf apache-maven-3.9.4-bin.tar.gz 
+echo $PATH ==> mkdir bin
+mv maven394/ bin
+cd bin
+ln -s /home/ec2-user/bin/maven394/bin/mvn mvn
+ls -l ==> mvn --version
+cd ==> mvn --version
+sudo wget -O /etc/yum.repos.d/jenkins.repo     https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf upgrade
+sudo dnf install jenkins -y
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
