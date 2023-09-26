@@ -17,7 +17,7 @@ cellspacing="2">
 
 <tr>
 <td colspan=2>
-<center><font size=4><b>JNU Registration Form</b></font></center>
+<center><font size=4><b>Delhi University Registration Form</b></font></center>
 </td>
 </tr>
 
