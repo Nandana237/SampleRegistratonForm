@@ -17,7 +17,7 @@ cellspacing="2">
 
 <tr>
 <td colspan=2>
-<center><font size=4><b>IIM Bangalore Registration Form</b></font></center>
+<center><font size=4><b>IIM Bangalore, Registration Form</b></font></center>
 </td>
 </tr>
 
